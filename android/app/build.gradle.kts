@@ -2,6 +2,16 @@ plugins {
     id("com.android.application")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+}
+
+secrets {
+    // Secrets are read from this file (contains your actual API key — never commit this).
+    propertiesFileName = "secrets.properties"
+    // Fallback defaults file with placeholder values (safe to commit).
+    defaultPropertiesFileName = "local.defaults.properties"
+    // Make secrets available as manifest placeholders and in BuildConfig.
+    ignoreList.add("sdk.*")
 }
 
 android {
